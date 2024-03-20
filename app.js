@@ -7,12 +7,12 @@ const movieSelect = document.getElementById("movie")
 // + transforms string into number
 let ticketPrice = +movieSelect.value
 
-const setMovieData = (movieIndex, moviePrice) => {
+let setMovieData = (movieIndex, moviePrice) => {
   localStorage.setItem("selectedMovieIndex", movieIndex)
   localStorage.setItem("selectecMoviePrice", moviePrice)
 }
 
-const updateSelectedCount = () => {
+let updateSelectedCount = () => {
   const selectedSeats = document.querySelectorAll(".row .seat.selected")
   const selectedSeatsCount = selectedSeats.length
   count.innerText = selectedSeatsCount
@@ -25,7 +25,7 @@ const updateSelectedCount = () => {
 movieSelect.addEventListener("change", (e) => {
   ticketPrice = +e.target.value
   setMovieData(e.target.selectedIndex, e.target.value)
-  console.log(e.target.selectedIndex)
+  console.log(e.target.selectedIndex, e.target.value)
   updateSelectedCount()
 })
 // select seat
